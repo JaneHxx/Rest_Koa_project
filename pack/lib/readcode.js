@@ -12,14 +12,12 @@ const readCode = function (filePath) {
 
     const content = fs.readFileSync(filePath, 'utf-8')
     const ast = babylon.parse(content, { sourceType: 'module' })
-    console.log('ast = ' + ast);
     traverse(ast, {
         ImportDeclaration: ({ node }) => {
             deps.push(node.source.value)
         }
     })
     const {code} = transformFromAst(ast, null, {presets: ['env']})
-
     return {
         filePath,
         deps,
