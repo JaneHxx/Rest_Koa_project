@@ -25,8 +25,8 @@ app.use(logger())
 app.use(server(path.join(__dirname + '/public')))
 
 app.use(views(path.join(__dirname + '/views'), {
-  extension: 'pug'
-}))
+  extension: 'html'
+}));
 
 // logger
 app.use(async (ctx, next) => {

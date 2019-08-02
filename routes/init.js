@@ -5,9 +5,7 @@ module.exports = {
     dirPath: '../routes/',
     // 动态加载路由
     listDir: function (pathName) {
-        console.log('pathName = ' + pathName);
         let fileList = fs.readdirSync(pathName, 'utf-8');
-        console.log(fileList);
         for (let i = 0; i < fileList.length; i++) {
             let file = fileList[i];
             let stat = fs.lstatSync(path.join(pathName, file));
