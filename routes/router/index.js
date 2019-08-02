@@ -5,7 +5,9 @@ const router = new Router({
 });
 
 router.get('/', async (ctx, next) => {
-  await ctx.render('index');
+  await ctx.render('index.html', {
+      title: 'koa2'
+  });
 });
 
 router.get('index/title', async (ctx, next) => {

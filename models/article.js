@@ -35,6 +35,10 @@ class ArticleModel {
             }
         });
     }
+
+    static async getArticleList () {
+        return await Article.findAll({});
+    }
 }
 
 module.exports = ArticleModel;

@@ -7,11 +7,14 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const server = require('koa-static');
 const path = require('path');
+// const staticFiles = require('./middleware/static-files');
+const templating = require('./middleware/templating');
 
 const routes = require('./routes/init');
 // 实现一个cors标准，解决跨域问题
 const cors = require('koa-cors');
 
+const isProduction = process.env.NODE_ENV === 'production';
 // error handler
 onerror(app)
 
@@ -22,7 +25,12 @@ onerror(app)
 app.use(bodyparser())
 app.use(json())
 app.use(logger())
-app.use(server(path.join(__dirname + '/public')))
+app.use(server(path.join(__dirname + '/public')));
+// app.use(staticFiles('/public/', __dirname + '/public'));
+app.use(templating('views', {
+    noCache: !isProduction,
+    watch: !isProduction
+}));
 
 app.use(views(path.join(__dirname + '/views'), {
   extension: 'html'

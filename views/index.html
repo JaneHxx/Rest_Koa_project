@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Title</title>
+    <link rel="stylesheet" href="/plugins/layui/css/layui.css" media="all">
+
 </head>
 <body>
     <div id="indexapp">
         <p>Welcome to {{title}}</p>
     </div>
-    <script type="text/javascript" src="/javascripts/plugins/jquery.min.3.4.1.js"></script>
-    <script type="text/javascript" src="/javascripts/plugins/vue.2.1.8.min.js"></script>
+    <!--<iframe src="layuiAdmin.html?from=demo" id="demoAdmin" style="width: 100%; height: 300px;" frameborder="0"></iframe>-->
+    <table class="layui-hide" id="demoTb" lay-filter="test"></table>
+    <script type="text/javascript" src="/plugins/jquery.min.3.4.1.js"></script>
+    <script type="text/javascript" src="/plugins/vue.2.1.8.min.js"></script>
+    <script src="/plugins/layui/layui.js"></script>
     <script type="text/javascript" src="/javascripts/index.js"></script>
 </body>
 </html>

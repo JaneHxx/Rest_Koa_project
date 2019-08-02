@@ -73,6 +73,24 @@ class articleController {
             }
         }
     }
+
+    static async list (ctx) {
+        try {
+            let list = await ArticleModel.getArticleList();
+            ctx.response.status = 200;
+            ctx.body = {
+                code: 200,
+                msg: '查询成功',
+                list
+            }
+        } catch (e) {
+            ctx.response.status = 412;
+            ctx.body = {
+                code: 412,
+                msg: '查询失败'
+            };
+        }
+    }
 }
 
 module.exports = articleController;
