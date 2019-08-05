@@ -1,0 +1,32 @@
+<html>
+<style type="text/css">
+    .countTime{
+        width:100px;
+        height:100px;
+        background-color:blue;
+    }
+</style>
+<body>
+    <p>Count numbers: <output id="result"></output></p>
+    <div class="countTime" id="countTime" onmouseover="countStart()" onmouseout="countStop()"></div>
+    <p>Please Input Interval Time:</p>
+    <input id="textinput" type="number" ></input>
+
+    <script type="text/javascript">
+        var myworker;
+        var i = 10;
+        myworker = new Worker("/javascripts/workers/count/myworker.js");
+        myworker.onmessage = function(event){
+            document.getElementById("result").innerHTML = event.data;
+        }
+        function countStart(){
+            var value = document.getElementById("textinput").value;
+            myworker.postMessage({"moustevent":1,"textinput":value});//1 start count
+        }
+        function countStop(){
+            myworker.postMessage({"moustevent":0});
+        }
+    </script>
+
+</body>
+</html>
