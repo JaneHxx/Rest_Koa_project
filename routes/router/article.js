@@ -5,6 +5,10 @@ const router = new Router({
   prefix: '/api/article'
 });
 
+router.get('/', async (ctx, next) => {
+  ctx.render('article/index.html');
+});
+
 /**
  * 文章接口
  */

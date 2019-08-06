@@ -79,9 +79,10 @@ class articleController {
             let list = await ArticleModel.getArticleList();
             ctx.response.status = 200;
             ctx.body = {
-                code: 200,
+                code: 0,
                 msg: '查询成功',
-                list
+                data: list,
+                count: 100
             }
         } catch (e) {
             ctx.response.status = 412;
