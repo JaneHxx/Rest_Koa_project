@@ -75,20 +75,29 @@ class articleController {
     }
 
     static async list (ctx) {
-        try {
-            let list = await ArticleModel.getArticleList();
-            ctx.response.status = 200;
-            ctx.body = {
-                code: 0,
-                msg: '查询成功',
-                data: list,
-                count: 100
+        let req = ctx.request.body;
+        if (req.page && req.limit) {
+            try {
+                let list = await ArticleModel.getArticleList(req);
+                ctx.response.status = 200;
+                ctx.body = {
+                    code: 0,
+                    msg: '查询成功',
+                    data: list.rows,
+                    count: list.count
+                }
+            } catch (e) {
+                ctx.response.status = 412;
+                ctx.body = {
+                    code: 412,
+                    msg: '查询失败'
+                };
             }
-        } catch (e) {
-            ctx.response.status = 412;
+        } else {
+            ctx.response.status = 416;
             ctx.body = {
-                code: 412,
-                msg: '查询失败'
+                code: 416,
+                msg: '参数不齐全'
             };
         }
     }

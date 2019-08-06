@@ -19,6 +19,6 @@ router.post('/create',ArticleController.create);
 router.get('/detail/:id',ArticleController.detail);
 
 // 获取所有文章
-router.get('/list',ArticleController.list);
+router.post('/list',ArticleController.list);
 
 module.exports = router;

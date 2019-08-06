@@ -6,7 +6,7 @@ const Sequelize = db.sequelize;
 
 // 引入数据表模型
 const Article = Sequelize.import('../schema/article');
-Article.sync({force: false}); //自动创建表
+Article.sync({force: false}); // 自动创建表
 
 class ArticleModel {
     /**
@@ -36,8 +36,15 @@ class ArticleModel {
         });
     }
 
-    static async getArticleList () {
-        return await Article.findAll({});
+    static getArticleList ({page, limit}) {
+        return new Promise((resolve, reject) => {
+             Article.findAndCountAll({
+                limit: limit,
+                offset: parseInt(page - 1) * limit
+            }).then((result) => {
+                 resolve(result);
+            });
+        });
     }
 }
 

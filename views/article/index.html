@@ -11,8 +11,20 @@
 </head>
 <body class="inner-container">
     <div id="articleIndex">
-        <table class="layui-hide" id="demoTb" lay-filter="test"></table>
+        <table id="articleTb" lay-filter="article"></table>
+        <script type="text/html" id="toolbarArticle">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+                <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+                <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+                <button class="layui-btn layui-btn-sm" lay-event="detail">查看</button>
+            </div>
+        </script>
     </div>
     <script type="text/javascript" src="/javascripts/article/index.js"></script>
 </body>
 </html>
+
+
+
+
