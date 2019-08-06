@@ -1,0 +1,17 @@
+.inner-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.inner-container::-webkit-scrollbar {
+    display: none;
+}
+.layui-table, .layui-table-view {
+    margin: 0;
+}
+
+
+
+
