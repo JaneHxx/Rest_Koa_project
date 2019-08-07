@@ -20,6 +20,9 @@ const sequelize = new Sequelize(dbname, dbusername, password, {
         idle: 10000
     },
     timezone: '+08:00'  //东八时区
+    ,define: {
+        timestamps: false
+    }
 });
 
 module.exports = {

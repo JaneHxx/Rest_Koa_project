@@ -24,7 +24,7 @@ html, body {
 
 .left {
     float: left;
-    width: 200px;
+    width: 220px;
     /*padding-bottom: 2000px;*/
     /*margin-bottom: -2000px;*/
     height: calc(100% - 60px);
@@ -34,8 +34,12 @@ html, body {
 
 .right {
     height: calc(100% - 60px);
-    margin-left: 200px;
+    margin-left: 220px;
     background-color: #FBFBFB;
     position: relative;
     overflow: hidden;
+}
+
+.layui-side {
+    position: static;
 }

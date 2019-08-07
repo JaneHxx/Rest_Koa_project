@@ -6,10 +6,9 @@ class articleController {
      * @param ctx
      * @returns {Promise.<void>}
      */
-    static async create(ctx){
+    static async create(ctx) {
         //接收客服端
         let req = ctx.request.body;
-        console.log('req = ' + req.title);
         if(req.title && req.author && req.content && req.category){
             try{
                 //创建文章模型
@@ -22,7 +21,7 @@ class articleController {
                     msg: '创建文章成功',
                     data
                 }
-            }catch(err){
+            } catch (err){
                 ctx.response.status = 412;
                 ctx.body = {
                     code: 412,
@@ -44,7 +43,7 @@ class articleController {
      * @param ctx
      * @returns {Promise.<void>}
      */
-    static async detail(ctx){
+    static async detail(ctx) {
         let id = ctx.params.id;
         console.log('ctx.params = ' + ctx.params);
         if(id){
@@ -68,7 +67,7 @@ class articleController {
         }else {
             ctx.response.status = 416;
             ctx.body = {
-                code: 416,
+                code: 200,
                 msg: '文章ID必须传'
             }
         }
@@ -96,7 +95,7 @@ class articleController {
         } else {
             ctx.response.status = 416;
             ctx.body = {
-                code: 416,
+                code: 200,
                 msg: '参数不齐全'
             };
         }
